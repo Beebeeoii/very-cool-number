@@ -1,8 +1,6 @@
 # Challenge
 
-Let VCN[0] = 2, VCN[1] = 1, VCN[2] = 0, VCN[3] = 6
-
-Write a program in x86_64 that computes VCN[41] recursively and stores it into `%rax` without using `%rbp` or its variants nor emulating the use of base pointers through other registers.
+Compute VCN[41] recursively and store it into `%rax` without using `%rbp` or its variants nor emulating the use of base pointers through other registers. Let VCN[0] = 2, VCN[1] = 1, VCN[2] = 0, VCN[3] = 6.
 
 ---
 
