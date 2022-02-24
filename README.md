@@ -1,6 +1,8 @@
-# CS2106 Optional Challenge 1
+# Challenge
 
-by Lee Jia Wei
+Let VCN[0] = 2, VCN[1] = 1, VCN[2] = 0, VCN[3] = 6
+
+Write a program in x86_64 that computes VCN[41] recursively and stores it into `%rax` without using `%rbp` or its variants nor emulating the use of base pointers through other registers.
 
 ---
 
@@ -89,15 +91,11 @@ Square brackets [ ] are used to denote the number of stack frames.
 
 We can then formulate a formula to calculate the number of stack frames created for `vcn(n)`:
 
-$$
-4+3\times (2^{n-4}-1),\ n\geq 4
-$$
+4+3*(2^{n-4}-1), where n >= 4
 
 Therefore, we can see that for `vcn(41)`, there will be:
 
-$$
-4+3\times (2^{41-4}-1)=412,316,860,417
-$$
+4+3*(2^{41-4}-1)=412,316,860,417
 
 stack frames being created.
 
@@ -110,7 +108,3 @@ Moreover, for every function call in the recursive execution, 8 additional bytes
 ## Conclusion
 
 Not using the base pointer and solely relying on the stack pointer indeed **boosts the performance** of deep recursive program like this one. This is mainly because of the number of stack frames being created during the execution.
-
----
-
-Just some closing words (and also for myself to look back in the future). This has been an interesting challenge as it was my first time writing some `x86-64` code. Met with a lot of frustrations due to segfaults and obviously wrong results along the way. Also learnt about the importance of using a debugger, especially so when bugs are not so obvious in "less readable" code like assembly.
